@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,28 @@
     <link rel="stylesheet" href="style.css">
     <script type="module" src="/main.js"></script>
 </head>
+
 <body>
     <div id="app-container">
         <div class="transition-overlay" id="transition-overlay"></div>
 
         <!-- Backgrounds -->
         <div id="bg-main" class="bg-layer active">
-            <img src="assets/main_bg.png" alt="">
+            <img src="/assets/main_bg.png" alt="">
         </div>
         <div id="bg-interstellar" class="bg-layer">
             <video id="vid-interstellar" loop muted playsinline>
-                <source src="assets/interstellar_bg.mp4" type="video/mp4">
+                <source src="/assets/interstellar_bg.mp4" type="video/mp4">
             </video>
         </div>
         <div id="bg-oppenheimer" class="bg-layer">
             <video id="vid-oppenheimer" loop muted playsinline>
-                <source src="assets/oppenheimer_bg.mp4" type="video/mp4">
+                <source src="/assets/oppenheimer_bg.mp4" type="video/mp4">
             </video>
         </div>
         <div id="bg-lucy" class="bg-layer">
             <video id="vid-lucy" loop muted playsinline>
-                <source src="assets/lucy_bg.mp4" type="video/mp4">
+                <source src="/assets/lucy_bg.mp4" type="video/mp4">
             </video>
         </div>
         <div class="overlay"></div>
@@ -41,7 +43,7 @@
         <!-- INTRO -->
         <section id="section-intro" class="active">
             <div class="intro-content">
-                <img src="assets/oscar.png" alt="Oscar" class="oscar-logo">
+                <img src="/assets/oscar.png" alt="Oscar" class="oscar-logo">
                 <h1>Народный Оскар</h1>
                 <p class="year">2026</p>
                 <p class="subtitle">СОР-4 · Русский язык · 8 класс</p>
@@ -56,7 +58,7 @@
             <div class="movie-grid">
                 <div class="movie-card" data-movie="interstellar">
                     <div class="card-poster">
-                        <img src="assets/interstellar.png" alt="Interstellar">
+                        <img src="/assets/interstellar.png" alt="Interstellar">
                     </div>
                     <div class="card-body">
                         <h2>Interstellar</h2>
@@ -73,7 +75,7 @@
 
                 <div class="movie-card" data-movie="oppenheimer">
                     <div class="card-poster">
-                        <img src="assets/oppenheimer.png" alt="Oppenheimer">
+                        <img src="/assets/oppenheimer.png" alt="Oppenheimer">
                     </div>
                     <div class="card-body">
                         <h2>Oppenheimer</h2>
@@ -90,7 +92,7 @@
 
                 <div class="movie-card" data-movie="lucy">
                     <div class="card-poster">
-                        <img src="assets/lucy.png" alt="Lucy">
+                        <img src="/assets/lucy.png" alt="Lucy">
                     </div>
                     <div class="card-body">
                         <h2>Lucy</h2>
@@ -118,7 +120,7 @@
         <div class="winner-overlay" id="winner-overlay">
             <div class="light-rays"></div>
             <div class="dust-particles"></div>
-            <img src="assets/oscar.png" alt="" class="bg-oscar-statue">
+            <img src="/assets/oscar.png" alt="" class="bg-oscar-statue">
             <div class="winner-stage" id="winner-stage"></div>
             <p class="winner-close-hint">Нажмите в любом месте, чтобы закрыть</p>
         </div>
@@ -130,4 +132,5 @@
     </div>
 
 </body>
+
 </html>

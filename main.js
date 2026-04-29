@@ -13,7 +13,7 @@ const movieData = {
         ],
         bg: "bg-interstellar",
         vidId: "vid-interstellar",
-        poster: "assets/interstellar.png",
+        poster: "/assets/interstellar.png",
         votes: 0
     },
     oppenheimer: {
@@ -30,7 +30,7 @@ const movieData = {
         ],
         bg: "bg-oppenheimer",
         vidId: "vid-oppenheimer",
-        poster: "assets/oppenheimer.png",
+        poster: "/assets/oppenheimer.png",
         votes: 0
     },
     lucy: {
@@ -47,7 +47,7 @@ const movieData = {
         ],
         bg: "bg-lucy",
         vidId: "vid-lucy",
-        poster: "assets/lucy.png",
+        poster: "/assets/lucy.png",
         votes: 0
     }
 };
@@ -140,7 +140,7 @@ window.app = {
         movieData[movieId].votes++;
         const el = document.getElementById(`count-${movieId}`);
         el.textContent = movieData[movieId].votes;
-        
+
         // Add epic bump animation
         el.classList.remove('bump');
         void el.offsetWidth; // Trigger reflow
@@ -225,7 +225,7 @@ window.app = {
     launchConfetti() {
         const colors = ['#c9a84c', '#f1dca0', '#8a6d2b', '#ffffff', '#ffd700'];
         const container = document.body;
-        
+
         for (let i = 0; i < 120; i++) {
             const piece = document.createElement('div');
             piece.className = 'confetti-piece';
@@ -236,13 +236,13 @@ window.app = {
             piece.style.height = (6 + Math.random() * 10) + 'px';
             piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
             piece.style.zIndex = '4000';
-            
+
             const duration = 3 + Math.random() * 3;
             piece.style.transition = `top ${duration}s cubic-bezier(0.1, 0.4, 0.45, 1), 
                                       left ${duration}s ease-out, 
                                       transform ${duration}s ease-out, 
                                       opacity 1s ease-out ${duration - 1}s`;
-            
+
             container.appendChild(piece);
 
             setTimeout(() => {
@@ -251,7 +251,7 @@ window.app = {
                 piece.style.transform = `rotate(${Math.random() * 1500}deg)`;
                 piece.style.opacity = '0';
             }, 10);
-            
+
             setTimeout(() => piece.remove(), (duration + 1) * 1000);
         }
     },
@@ -263,7 +263,7 @@ window.app = {
     playVideo(vidId) {
         this.stopAllVideos();
         const v = document.getElementById(vidId);
-        if (v) v.play().catch(() => {});
+        if (v) v.play().catch(() => { });
     },
 
     // ── Navigation ──
