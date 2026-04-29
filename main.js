@@ -52,7 +52,7 @@ const movieData = {
     }
 };
 
-const app = {
+window.app = {
     init() {
         document.getElementById('btn-back').addEventListener('click', () => {
             this.navigate('section-selection');
@@ -296,5 +296,4 @@ const app = {
     }
 };
 
-window.app = app;
-app.init();
+window.app.init();
