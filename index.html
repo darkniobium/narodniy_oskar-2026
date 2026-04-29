@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Народный Оскар 2026</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
+    <script type="module" src="/main.js"></script>
 </head>
 <body>
     <div id="app-container">
@@ -45,7 +45,7 @@
                 <h1>Народный Оскар</h1>
                 <p class="year">2026</p>
                 <p class="subtitle">СОР-4 · Русский язык · 8 класс</p>
-                <button class="btn" onclick="app.navigate('section-selection')">Начать церемонию</button>
+                <button class="btn" id="btn-start">Начать церемонию</button>
             </div>
         </section>
 
@@ -54,7 +54,7 @@
             <h1 class="section-title">Номинанты</h1>
 
             <div class="movie-grid">
-                <div class="movie-card" onclick="if(!event.target.closest('.vote-btn')) app.showPresentation('interstellar')">
+                <div class="movie-card" data-movie="interstellar">
                     <div class="card-poster">
                         <img src="assets/interstellar.png" alt="Interstellar">
                     </div>
@@ -66,12 +66,12 @@
                                 <span class="count" id="count-interstellar">0</span>
                                 <span class="label">голосов</span>
                             </div>
-                            <button class="vote-btn" onclick="app.vote('interstellar')">Голосовать</button>
+                            <button class="vote-btn" data-movie="interstellar">Голосовать</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="movie-card" onclick="if(!event.target.closest('.vote-btn')) app.showPresentation('oppenheimer')">
+                <div class="movie-card" data-movie="oppenheimer">
                     <div class="card-poster">
                         <img src="assets/oppenheimer.png" alt="Oppenheimer">
                     </div>
@@ -83,12 +83,12 @@
                                 <span class="count" id="count-oppenheimer">0</span>
                                 <span class="label">голосов</span>
                             </div>
-                            <button class="vote-btn" onclick="app.vote('oppenheimer')">Голосовать</button>
+                            <button class="vote-btn" data-movie="oppenheimer">Голосовать</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="movie-card" onclick="if(!event.target.closest('.vote-btn')) app.showPresentation('lucy')">
+                <div class="movie-card" data-movie="lucy">
                     <div class="card-poster">
                         <img src="assets/lucy.png" alt="Lucy">
                     </div>
@@ -100,13 +100,13 @@
                                 <span class="count" id="count-lucy">0</span>
                                 <span class="label">голосов</span>
                             </div>
-                            <button class="vote-btn" onclick="app.vote('lucy')">Голосовать</button>
+                            <button class="vote-btn" data-movie="lucy">Голосовать</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <button class="btn finale-btn" onclick="app.revealWinner()">Показать Победителя</button>
+            <button class="btn finale-btn" id="btn-finale">Показать Победителя</button>
         </section>
 
         <!-- PRESENTATION -->
@@ -115,7 +115,7 @@
         </section>
 
         <!-- WINNER OVERLAY -->
-        <div class="winner-overlay" id="winner-overlay" onclick="app.closeWinner()">
+        <div class="winner-overlay" id="winner-overlay">
             <div class="light-rays"></div>
             <div class="dust-particles"></div>
             <img src="assets/oscar.png" alt="" class="bg-oscar-statue">

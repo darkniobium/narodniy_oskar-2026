@@ -54,9 +54,47 @@ const movieData = {
 
 window.app = {
     init() {
+        // Navigation: Back button
         document.getElementById('btn-back').addEventListener('click', () => {
             this.navigate('section-selection');
             this.stopAllVideos();
+        });
+
+        // Navigation: Start button
+        const startBtn = document.getElementById('btn-start');
+        if (startBtn) {
+            startBtn.addEventListener('click', () => this.navigate('section-selection'));
+        }
+
+        // Navigation: Finale button
+        const finaleBtn = document.getElementById('btn-finale');
+        if (finaleBtn) {
+            finaleBtn.addEventListener('click', () => this.revealWinner());
+        }
+
+        // Winner overlay close
+        const winnerOverlay = document.getElementById('winner-overlay');
+        if (winnerOverlay) {
+            winnerOverlay.addEventListener('click', () => this.closeWinner());
+        }
+
+        // Movie cards (Presentation)
+        document.querySelectorAll('.movie-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (!e.target.closest('.vote-btn')) {
+                    const movieId = card.dataset.movie;
+                    this.showPresentation(movieId);
+                }
+            });
+        });
+
+        // Vote buttons
+        document.querySelectorAll('.vote-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const movieId = btn.dataset.movie;
+                this.vote(movieId);
+            });
         });
 
         // Spotlight movement
