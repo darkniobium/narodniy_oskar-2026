@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Народный Оскар 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="transition-overlay" id="transition-overlay"></div>
+
+        <!-- Backgrounds -->
+        <div id="bg-main" class="bg-layer active">
+            <img src="assets/main_bg.png" alt="">
+        </div>
+        <div id="bg-interstellar" class="bg-layer">
+            <video id="vid-interstellar" loop muted playsinline>
+                <source src="assets/interstellar_bg.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div id="bg-oppenheimer" class="bg-layer">
+            <video id="vid-oppenheimer" loop muted playsinline>
+                <source src="assets/oppenheimer_bg.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div id="bg-lucy" class="bg-layer">
+            <video id="vid-lucy" loop muted playsinline>
+                <source src="assets/lucy_bg.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="overlay"></div>
+
+        <!-- Top Bar -->
+        <div class="top-controls">
+            <button class="btn btn-ghost back-btn" id="btn-back">← Назад</button>
+            <span class="label">Народный Оскар 2026</span>
+        </div>
+
+        <!-- INTRO -->
+        <section id="section-intro" class="active">
+            <div class="intro-content">
+                <img src="assets/oscar.png" alt="Oscar" class="oscar-logo">
+                <h1>Народный Оскар</h1>
+                <p class="year">2026</p>
+                <p class="subtitle">СОР-4 · Русский язык · 8 класс</p>
+                <button class="btn" onclick="app.navigate('section-selection')">Начать церемонию</button>
+            </div>
+        </section>
+
+        <!-- SELECTION & VOTING -->
+        <section id="section-selection">
+            <h1 class="section-title">Номинанты</h1>
+
+            <div class="movie-grid">
+                <div class="movie-card" onclick="if(!event.target.closest('.vote-btn')) app.showPresentation('interstellar')">
+                    <div class="card-poster">
+                        <img src="assets/interstellar.png" alt="Interstellar">
+                    </div>
+                    <div class="card-body">
+                        <h2>Interstellar</h2>
+                        <p class="team-name">Муниса и Музаяна</p>
+                        <div class="vote-row">
+                            <div class="vote-counter">
+                                <span class="count" id="count-interstellar">0</span>
+                                <span class="label">голосов</span>
+                            </div>
+                            <button class="vote-btn" onclick="app.vote('interstellar')">Голосовать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card" onclick="if(!event.target.closest('.vote-btn')) app.showPresentation('oppenheimer')">
+                    <div class="card-poster">
+                        <img src="assets/oppenheimer.png" alt="Oppenheimer">
+                    </div>
+                    <div class="card-body">
+                        <h2>Oppenheimer</h2>
+                        <p class="team-name">Сардор, Азимхон, Мухаммадзиё</p>
+                        <div class="vote-row">
+                            <div class="vote-counter">
+                                <span class="count" id="count-oppenheimer">0</span>
+                                <span class="label">голосов</span>
+                            </div>
+                            <button class="vote-btn" onclick="app.vote('oppenheimer')">Голосовать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card" onclick="if(!event.target.closest('.vote-btn')) app.showPresentation('lucy')">
+                    <div class="card-poster">
+                        <img src="assets/lucy.png" alt="Lucy">
+                    </div>
+                    <div class="card-body">
+                        <h2>Lucy</h2>
+                        <p class="team-name">Рухшона и Мухаррамхон</p>
+                        <div class="vote-row">
+                            <div class="vote-counter">
+                                <span class="count" id="count-lucy">0</span>
+                                <span class="label">голосов</span>
+                            </div>
+                            <button class="vote-btn" onclick="app.vote('lucy')">Голосовать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn finale-btn" onclick="app.revealWinner()">Показать Победителя</button>
+        </section>
+
+        <!-- PRESENTATION -->
+        <section id="section-presentation">
+            <div id="presentation-content"></div>
+        </section>
+
+        <!-- WINNER OVERLAY -->
+        <div class="winner-overlay" id="winner-overlay" onclick="app.closeWinner()">
+            <div class="light-rays"></div>
+            <div class="dust-particles"></div>
+            <img src="assets/oscar.png" alt="" class="bg-oscar-statue">
+            <div class="winner-stage" id="winner-stage"></div>
+            <p class="winner-close-hint">Нажмите в любом месте, чтобы закрыть</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Ведущие: Амирхон и @persuadista · Тех. поддержка: Абубакр
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
